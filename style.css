@@ -1,0 +1,556 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow-y: overlay;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* 스크롤 스냅 */
+.scroll-container,
+.scroll-area {
+    width: 100%;
+    height: 100vh;
+}
+
+.scroll-container {
+    scroll-snap-type: y mandatory;
+    overflow: auto;
+}
+
+.scroll-area {
+    scroll-snap-align: start;
+}
+
+#home {
+    background-image: url(images/home.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    color: white;
+    overflow: hidden;
+}
+
+#home header {
+    height: 110px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 120px;
+}
+
+#home header span {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#home header ul {
+    display: flex;
+    gap: 40px;
+}
+
+#home header ul li {
+    font-size: 18px;
+}
+
+#home header ul li a {
+    padding: 43.5px 20px;
+}
+
+#home header .icon a img {
+    padding-right: 15px;
+}
+
+#home header .icon a:nth-child(1) img {
+    padding-right: 16px;
+}
+
+#home header .icon a:nth-child(2) img {
+    vertical-align: 4px;
+}
+
+#home section {
+    padding-left: 25%;
+}
+
+#home section .title1 {
+    font-weight: bold;
+    font-size: 64px;
+    padding-top: 200px;
+    line-height: 1.2em;
+    padding-bottom: 1.6rem;
+    border-bottom: 3px solid white;
+}
+
+#home section .title2 {
+    font-weight: 600;
+    font-size: 26px;
+    padding-top: 1.2em;
+}
+
+#home #btn-down {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin-top: 260px;
+    animation: mouse_move 1s backwards alternate infinite;
+}
+
+@keyframes mouse_move {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-40px);
+    }
+}
+
+#AboutSkills {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+#AboutSkills h1 {
+    text-align: center;
+    padding-top: 90px;
+    font-weight: bold;
+    font-size: 64px;
+}
+
+/* 이미지 클릭시 skills 왼쪽으로 이동 */
+#AboutSkills h1.active {
+    animation: skills_move 1s;
+    -webkit-animation-fill-mode: both
+}
+
+#AboutSkills .skills {
+    margin-top: 86px;
+}
+
+#AboutSkills .skills.active {
+    animation: skills_move 1s;
+    /* 애니메이션 끝난 위치에 멈춰있는 속성 */
+    -webkit-animation-fill-mode: both
+}
+
+#AboutSkills .skills.active .click {
+    position: absolute;
+    left: calc(50% - 140px);
+    top: 140px;
+}
+
+#AboutSkills .skills.active .skills-img .skills-text {
+    display: none;
+}
+
+@keyframes skills_move {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-400px);
+    }
+}
+
+#AboutSkills .skills .skills-img {
+    position: absolute;
+    left: calc(50% - 304.5px);
+
+}
+
+#AboutSkills .skills .click {
+    position: absolute;
+    left: calc(50% - 140px);
+    top: 410px;
+}
+
+#AboutSkills .skills .skills-text {
+    position: absolute;
+}
+
+#AboutSkills .skills .skills-text.remove {
+    display: none;
+}
+
+#AboutSkills .skills .skills-text h4 {
+    font-size: 24px;
+    padding-bottom: 1rem;
+}
+
+#AboutSkills .skills .skills-text:nth-child(even) h4 {
+    font-size: 24px;
+    padding-bottom: 1rem;
+    display: flex;
+    justify-content: end;
+}
+
+#AboutSkills .skills .skills-text:nth-of-type(1) {
+    top: 0px;
+    left: -290px;
+}
+
+#AboutSkills .skills .skills-text:nth-of-type(2) {
+    top: 0px;
+    right: -260px;
+}
+
+#AboutSkills .skills .skills-text:nth-of-type(3) {
+    top: 230px;
+    left: -326px;
+}
+
+#AboutSkills .skills .skills-text:nth-of-type(4) {
+    top: 230px;
+    right: -397px;
+}
+
+#AboutSkills .skills .skills-text:nth-of-type(5) {
+    top: 470px;
+    left: -290px;
+}
+
+#AboutSkills .skills .skills-text:nth-of-type(6) {
+    right: -232px;
+    top: 470px;
+}
+
+#AboutSkills .skills .click {
+    width: 280px;
+    height: 280px;
+    background-color: #2B2B2B;
+    border-radius: 50%;
+}
+
+#AboutSkills .skills .click:hover {
+    transform: scale(2);
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+/* 진동효과 */
+#AboutSkills .skills .vibration {
+    animation: vibration 0.1s infinite;
+}
+
+@keyframes vibration {
+    from {
+        transform: rotate(2deg);
+    }
+
+    to {
+        transform: rotate(-2deg);
+    }
+}
+
+/* @keyframes vibration2 {
+    0% {
+        transform: rotate(3deg);
+        scale: 1;
+    }
+
+    50% {
+        transform: rotate(0deg);
+        scale: 1.5;
+    }
+
+    100% {
+        transform: rotate(-3deg);
+        scale: 2;
+    }
+} */
+
+#AboutSkills .skills .click img {
+    width: 100%;
+}
+
+#AboutSkills .skills .click p {
+    position: absolute;
+    bottom: 11px;
+    left: calc(50% - 32px);
+    color: white;
+    font-size: 24px;
+}
+
+#AboutSkills .about {
+    position: absolute;
+    bottom: 80px;
+    left: calc(50% - 230px);
+    width: 468px;
+    height: 660px;
+    background-image: url(images/memo.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: none;
+}
+
+/* 이미지 클릭시 about 오른쪽으로 이동 */
+#AboutSkills .about.show {
+    display: block;
+    animation: about_move 1s;
+    -webkit-animation-fill-mode: both
+}
+
+@keyframes about_move {
+    0% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+
+    20% {
+        transform: translateX(80px);
+        opacity: 0;
+        scale: 0.5;
+    }
+
+    100% {
+        transform: translateX(400px);
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+#AboutSkills .about .infor-box {
+    display: flex;
+    margin-left: 60px;
+    padding-top: 220px;
+}
+
+#AboutSkills .about .infor-box .infor {
+    font-size: 20px;
+    text-align: center;
+}
+
+#AboutSkills .about .infor-box .infor h3 {
+    padding-bottom: 8px;
+}
+
+#AboutSkills .about .infor-box .answer {
+    font-size: 17px;
+    padding-top: 7px;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+}
+
+#AboutSkills .about .infor-box .answer p {
+    padding-bottom: 15.5px;
+}
+
+#AboutSkills .about .infor-box .answer p:nth-child(2) {
+    padding-bottom: 17px;
+}
+
+#AboutSkills .about .about-text {
+    margin-left: 60px;
+    padding-top: 30px;
+    line-height: 2em;
+}
+
+#AboutSkills .about .btn-close {
+    position: absolute;
+    top: -62PX;
+    right: 10px;
+}
+
+#works {
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    position: relative;
+    overflow: hidden;
+}
+
+#works h1 {
+    font-weight: bold;
+    font-size: 64px;
+    padding: 90px 0 54px;
+    color: white;
+    text-align: center;
+}
+
+#works .sliders {
+    display: flex;
+}
+
+#works .slide {
+    width: 364px;
+    height: 500px;
+    border-radius: 15px;
+    position: relative;
+    margin: 0 auto;
+}
+
+/* #works .card:nth-child(2) {
+    width: 460px;
+    height: 580px;
+} */
+
+#works .card-img {
+    width: 364px;
+    height: 334px;
+    background-image: url(images/bg/06c2a191076519.5e2849029c6d5.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 15px 15px 0 0;
+}
+
+#works .sliders .slide:nth-child(1) .card-img {
+    background-image: url(images/신영자산운용main.png);
+    /* margin-top: 49px; */
+}
+
+#works .sliders .slide:nth-child(2) .card-img {
+    background-image: url(images/땅콩마켓.png);
+    /* width: 460px;
+    height: 455px; */
+}
+
+#works .sliders .slide:nth-child(3) .card-img {
+    background-image: url(images/모바일\ 청첩장.png);
+    /* margin-top: 49px; */
+}
+
+#works .card-text {
+    height: 187px;
+    width: 364px;
+    border-radius: 20px 20px 15px 15px;
+    background-color: white;
+    padding: 30px 0 0 40px;
+    position: absolute;
+    top: 310px;
+}
+
+#works .card-text p {
+    padding-top: 10px;
+}
+
+#works .slide .card-hover {
+    padding-top: 15px;
+    display: none;
+}
+
+#works .slide .card-hover p {
+    margin-bottom: 30px;
+}
+
+#works .slide .card-hover a {
+    margin-right: 20px;
+}
+
+.btn {
+    background-color: #dfdfdf;
+    border-radius: 15px;
+    color: #000;
+    width: 110px;
+    height: 46px;
+    padding: 8px 18px;
+    border: 1px solid rgb(124, 124, 124);
+}
+
+#works .slide:hover .card-text {
+    height: 300px;
+    position: absolute;
+    top: 40%;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+#works .slide:hover .card-text .card-hover {
+    display: block;
+}
+
+/* #works .sliders .card:nth-child(2) .card-text {
+    width: 460px;
+} */
+#works h2 {
+    font-size: 24px;
+    color: black;
+}
+
+#works p {
+    color: rgb(53, 53, 53);
+}
+
+#works button {
+    border: none;
+    background-color: transparent;
+    width: 57px;
+    height: 57px;
+}
+
+#works .btn-prev {
+    position: absolute;
+    top: calc(50% - 28.5px);
+    left: 40px;
+}
+
+#works .btn-next {
+    position: absolute;
+    top: calc(50% - 28.5px);
+    right: 40px;
+}
+
+#works .work-text {
+    position: absolute;
+    width: 100%;
+    height: 5000px;
+    object-fit: cover;
+}
+
+#contact {
+    width: 100%;
+    height: 400px;
+    background-color: #2B2B2B;
+    color: white;
+    text-align: center;
+}
+
+#contact h2 {
+    padding-top: 70px;
+    font-weight: bold;
+    font-size: 32px;
+}
+
+#contact p {
+    font-size: 24px;
+    padding-top: 24px;
+}
+
+#contact .icon {
+    padding-top: 40px;
+}
+
+#contact .icon img {
+    padding-right: 15px;
+}
+
+#contact .icon a:nth-child(1) img {
+    padding-right: 11px;
+}
+
+#contact .icon a:nth-child(3) img {
+    vertical-align: 5px;
+    padding-right: 14px;
+}
